@@ -18,8 +18,10 @@ const App = () => {
   useEffect(() => {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
-    console.log(parsedContacts);
-  }, [contacts]);
+    if (parsedContacts) {
+      setContacts(parsedContacts);
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
